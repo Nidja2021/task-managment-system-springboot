@@ -21,7 +21,7 @@ import java.util.UUID;
 @Table(name = "employees")
 public class Employee implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Column(name = "employeeId")
     private UUID id;
     private String firstname;
