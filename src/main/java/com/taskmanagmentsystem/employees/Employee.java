@@ -28,6 +28,7 @@ public class Employee implements UserDetails {
     private String lastname;
     private String email;
     private String password;
+    @Enumerated
     private EmployeeRole employeeRole;
 
     @Override
