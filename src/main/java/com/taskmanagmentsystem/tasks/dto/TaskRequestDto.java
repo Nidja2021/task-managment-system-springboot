@@ -1,6 +1,7 @@
 package com.taskmanagmentsystem.tasks.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.taskmanagmentsystem.employees.Employee;
 import com.taskmanagmentsystem.tasks.TaskStatus;
 
 public record TaskRequestDto(

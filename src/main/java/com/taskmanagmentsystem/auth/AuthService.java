@@ -9,11 +9,10 @@ import com.taskmanagmentsystem.employees.Employee;
 import com.taskmanagmentsystem.employees.EmployeeRepository;
 import com.taskmanagmentsystem.employees.EmployeeRole;
 import com.taskmanagmentsystem.exceptions.BadRequestException;
-import com.taskmanagmentsystem.exceptions.EmployeeNotFoundException;
+import com.taskmanagmentsystem.exceptions.NotFoundException;
 import com.taskmanagmentsystem.token.Token;
 import com.taskmanagmentsystem.token.TokenRepository;
 import com.taskmanagmentsystem.token.TokenType;
-import jakarta.persistence.Entity;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
@@ -21,8 +20,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -61,7 +58,7 @@ public class AuthService {
         );
 
         var employee = employeeRepository.findEmployeeByEmail(loginRequestDto.email())
-                .orElseThrow(() -> new EmployeeNotFoundException("Employee does not exists."));
+                .orElseThrow(() -> new NotFoundException("Employee does not exists."));
 
         String accessToken = jwtService.generateToken(employee);
         String refreshToken = jwtService.generateRefreshToken(employee);

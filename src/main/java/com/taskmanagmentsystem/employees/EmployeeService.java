@@ -1,7 +1,7 @@
 package com.taskmanagmentsystem.employees;
 
 import com.taskmanagmentsystem.employees.dto.EmployeeResponseDto;
-import com.taskmanagmentsystem.exceptions.EmployeeNotFoundException;
+import com.taskmanagmentsystem.exceptions.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -31,7 +31,7 @@ public class EmployeeService {
 
     public ResponseEntity<EmployeeResponseDto> findEmployeeById(UUID employeeId) {
         var employee = employeeRepository.findById(employeeId)
-                .orElseThrow(() -> new EmployeeNotFoundException("Employee does not exists."));
+                .orElseThrow(() -> new NotFoundException("Employee does not exists."));
         EmployeeResponseDto employeeResponseDto = convertToEmployeeResponseDto(employee);
         return ResponseEntity.ok(employeeResponseDto);
     }

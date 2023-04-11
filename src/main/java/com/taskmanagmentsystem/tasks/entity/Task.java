@@ -1,6 +1,7 @@
-package com.taskmanagmentsystem.tasks;
+package com.taskmanagmentsystem.tasks.entity;
 
 import com.taskmanagmentsystem.employees.Employee;
+import com.taskmanagmentsystem.tasks.TaskStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,8 +1,7 @@
 package com.taskmanagmentsystem.tasks.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.taskmanagmentsystem.employees.Employee;
-import com.taskmanagmentsystem.tasks.TaskStatus;
+import com.taskmanagmentsystem.tasks.entity.Task;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,10 +13,8 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class TaskResponseDto {
-    private String title;
-    private String description;
-    @JsonProperty("task_status")
-    private TaskStatus taskStatus;
-    private UUID employeeID;
+public class CommentResponseDto {
+    private String text;
+    @JsonProperty(value = "task_id")
+    private UUID taskId;
 }
